@@ -1,0 +1,470 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f2f5;
+}
+
+a { text-decoration: none; }
+ul { list-style: none; padding: 0; margin: 0; }
+
+/* --- 1. HEADER ATAS --- */
+.main-header {
+    background-color: #0e1a2b; /* Warna Gelap */
+    color: white;
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.brand-logo {
+    width: 50px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+.logo-area h1 {
+    margin: 0;
+    font-size: 24px;
+    color: #ffc107; /* Kuning Emas */
+    letter-spacing: 1px;
+}
+
+.logo-area p {
+    margin: 0;
+    font-size: 12px;
+    color: #ccc;
+}
+
+.btn-login, .btn-register {
+    color: white;
+    margin-left: 15px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.btn-register {
+    background-color: #ffd700;
+    color: black;
+    padding: 8px 15px;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+.btn-register:hover { background-color: #e6c200; }
+
+/* --- 2. STICKY NAVBAR --- */
+.sticky-navbar {
+    background-color: #2c3e50;
+    color: white;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    
+    /* PENTING: Agar menempel saat scroll */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-menu { display: flex; }
+.nav-menu li { margin-right: 20px; }
+
+.nav-menu a {
+    display: block;
+    color: white;
+    padding: 15px 10px;
+    font-weight: bold;
+    border-bottom: 3px solid transparent;
+    transition: 0.3s;
+}
+
+.nav-menu a:hover, .nav-menu a.active {
+    color: #ffd700;
+    border-bottom: 3px solid #ffd700;
+}
+
+.nav-search input {
+    padding: 6px 10px;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+}
+
+.nav-search button {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* --- 3. LAYOUT UTAMA (FLEXBOX) --- */
+/* Ini yang memperbaiki masalah sidebar turun ke bawah */
+.main-body {
+    display: flex;
+    /* BARIS DI BAWAH INI WAJIB ADA & JANGAN DIHAPUS */
+    align-items: flex-start; 
+    
+    margin: 20px auto;
+    width: 90%;
+    max-width: 1200px;
+    gap: 20px;
+    padding: 20px 0;
+}
+
+/* --- SIDEBAR KANAN --- */
+.sidebar-right {
+    flex: 1;
+    min-width: 250px;
+    
+    /* LOGIC STICKY */
+    position: -webkit-sticky; /* Tambahkan ini untuk support browser Safari/lama */
+    position: sticky;
+    top: 80px; /* Jarak dari atas langit-langit browser */
+    z-index: 99;
+    
+    /* Pastikan sidebar tidak dipaksa tinggi */
+    height: auto; 
+    align-self: start; /* Penegasan agar dia tidak stretching */
+}
+
+.sidebar-widget {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    margin-bottom: 20px;
+}
+
+.sidebar-widget h3 {
+    margin-top: 0;
+    color: #2c3e50;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    font-size: 16px;
+}
+
+.sidebar-widget ul li {
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 14px;
+}
+
+/* --- KONTEN TENGAH --- */
+.content {
+    flex: 3; /* Lebar 3 bagian (lebih luas) */
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    min-height: 800px;
+}
+
+/* --- KARTU INFO (CARDS) --- */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: transform 0.2s;
+}
+
+.card:hover { transform: translateY(-5px); }
+
+.card-icon img {
+    background-color: #1c2833;
+    padding: 5px;
+    border-radius: 50%;
+}
+
+.card h3 { margin: 0; font-size: 14px; color: #7f8c8d; }
+.card p { margin: 5px 0; font-weight: bold; color: #2c3e50; }
+.card .number { font-size: 20px; color: #27ae60; font-weight: bold; }
+
+/* --- CALL TO ACTION --- */
+.call-to-action {
+    background: linear-gradient(135deg, #e0f7fa 0%, #ffffff 100%);
+    padding: 20px;
+    border-left: 5px solid #008CBA;
+    border-radius: 4px;
+    margin: 20px 0;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: white;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.btn-add { background-color: #008CBA; }
+.btn-add:hover { background-color: #007bb5; }
+
+/* Responsif untuk HP */
+@media (max-width: 768px) {
+    .main-body {
+        flex-direction: column; /* Tumpuk ke bawah di HP */
+    }
+    .sidebar-right {
+        width: 100%;
+        order: 2; /* Sidebar pindah ke bawah konten */
+    }
+    .content {
+        width: 100%;
+        order: 1;
+    }
+    .main-header {
+        flex-direction: column;
+        height: auto;
+        text-align: center;
+    }
+    .sticky-navbar {
+        flex-direction: column;
+        padding: 10px;
+    }
+    .nav-menu {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+/* --- STYLE UNTUK FORM FILTER DI SIDEBAR --- */
+.filter-group {
+    margin-bottom: 15px;
+}
+
+.filter-label {
+    display: block;
+    font-size: 12px;
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.filter-select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    color: #333;
+    font-size: 13px;
+}
+
+.btn-filter {
+    width: 100%;
+    padding: 10px;
+    background-color: #0e1a2b; /* Warna Header */
+    color: #ffc107; /* Warna Emas */
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-filter:hover {
+    background-color: #1c2833;
+}
+
+.btn-reset {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    color: #c0392b;
+    font-size: 12px;
+    text-decoration: underline;
+}
+
+/* --- WIDGET SIDEBAR (Perbaikan Style) --- */
+.sidebar-widget {
+    background: #fff;
+    padding: 25px; /* Padding lebih lega */
+    border-radius: 12px; /* Sudut lebih membulat */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Bayangan halus */
+    margin-bottom: 25px;
+    border: 1px solid #f0f0f0;
+}
+
+.sidebar-widget h3 {
+    margin-top: 0;
+    color: #0e1a2b; /* Warna Header Gelap */
+    font-size: 18px;
+    border-bottom: 2px solid #ffc107; /* Garis bawah emas */
+    padding-bottom: 12px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* --- FORM FILTER YANG LEBIH CANTIK --- */
+.filter-group {
+    margin-bottom: 20px; /* Jarak antar input */
+}
+
+.filter-label {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    color: #555;
+    margin-bottom: 8px;
+    text-transform: uppercase; /* Huruf kapital agar tegas */
+    letter-spacing: 0.5px;
+}
+
+.filter-select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cbd5e0; /* Border abu-abu halus */
+    border-radius: 8px;
+    background-color: #f8fafc;
+    color: #2d3748;
+    font-size: 14px;
+    outline: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    /* Menambahkan ikon panah custom (opsional, tergantung browser) */
+    appearance: none; 
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px top 50%;
+    background-size: 10px auto;
+}
+
+.filter-select:focus {
+    border-color: #008CBA; /* Warna biru saat diklik */
+    box-shadow: 0 0 0 3px rgba(0, 140, 186, 0.1); /* Efek glow halus */
+    background-color: #fff;
+}
+
+/* --- TOMBOL TERAPKAN (CTA) --- */
+.btn-filter {
+    width: 100%;
+    padding: 12px;
+    background-color: #0e1a2b; /* Background Biru Gelap */
+    color: #ffc107; /* Teks Emas */
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.btn-filter:hover {
+    background-color: #162a45; /* Sedikit lebih terang saat hover */
+    transform: translateY(-2px); /* Efek tombol naik sedikit */
+}
+
+/* --- TOMBOL RESET --- */
+.btn-reset {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    color: #7f8c8d;
+    font-size: 13px;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.btn-reset:hover {
+    color: #c0392b; /* Merah saat hover */
+    text-decoration: underline;
+}
+
+/* --- STYLE FILTER IKON ELEMEN --- */
+.element-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 Ikon per baris */
+    gap: 8px;
+    margin-top: 5px;
+}
+
+/* Sembunyikan Radio Button Asli */
+.element-option input[type="radio"] {
+    display: none;
+}
+
+/* Style Label (Wadah Gambar) */
+.element-option label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    border: 2px solid transparent; /* Border transparan default */
+    border-radius: 8px;
+    padding: 5px;
+    background-color: #f4f6f8;
+    transition: all 0.2s ease;
+}
+
+.element-option img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    filter: grayscale(80%); /* Default agak abu-abu/redup */
+    transition: filter 0.2s;
+}
+
+.element-option span {
+    font-size: 10px;
+    margin-top: 3px;
+    color: #666;
+    font-weight: bold;
+}
+
+/* Efek Hover */
+.element-option label:hover {
+    background-color: #e3f2fd;
+    border-color: #90caf9;
+}
+.element-option label:hover img {
+    filter: grayscale(0%); /* Warna muncul saat hover */
+}
+
+/* EFEK SAAT DIPILIH (CHECKED) */
+.element-option input[type="radio"]:checked + label {
+    background-color: #e0f7fa;
+    border-color: #008CBA; /* Border Biru saat aktif */
+    box-shadow: 0 0 5px rgba(0, 140, 186, 0.3);
+}
+
+.element-option input[type="radio"]:checked + label img {
+    filter: grayscale(0%); /* Warna Full */
+    transform: scale(1.1); /* Sedikit membesar */
+}
+
+.element-option input[type="radio"]:checked + label span {
+    color: #008CBA;
+}
