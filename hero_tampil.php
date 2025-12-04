@@ -48,7 +48,7 @@
             <img src="img/logo_main_shield.jpg" alt="GT Logo" class="brand-logo">
             <div>
                 <h1>GUARDIAN TALES WIKI</h1>
-                <p>Database & Komunitas Terlengkap</p>
+                <p>Wiki Guardian Tales dari C030324060</p>
             </div>
         </div>
     </header>
@@ -57,10 +57,10 @@
         <ul class="nav-menu">
             <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
             
-            <li><a href="hero_tampil.php" class="active"><i class="fas fa-users"></i> Database Hero</a></li>
+            <li><a href="hero_tampil.php" class="active"><i class="fas fa-users"></i>Hero</a></li>
             
             <li><a href="equipment_tampil.php"><i class="fas fa-swords"></i> Equipment</a></li>
-            <li><a href="#"><i class="fas fa-book"></i> Guides</a></li>
+            <li><a href="party_tampil.php"><i class="fas fa-chess"></i> Pengaturan Party</a></li>
         </ul>
     </nav>
 
@@ -205,7 +205,7 @@
                         <tr>
                             <td>
                                 <?php if(!empty($d['gambar'])): ?>
-                                    <img src="img/<?php echo $d['gambar']; ?>" class="hero-avatar">
+                                    <img src="img/hero/<?php echo $d['gambar']; ?>" class="hero-avatar">
                                 <?php else: ?>
                                     <img src="img/logo_gt.png" class="hero-avatar" style="opacity:0.5; padding:10px; background:#eee;">
                                 <?php endif; ?>

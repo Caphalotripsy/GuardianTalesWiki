@@ -74,7 +74,7 @@ if(!$data) {
                 <!-- Foto Besar -->
                 <div>
                     <?php if(!empty($data['gambar'])): ?>
-                        <img src="img/<?php echo $data['gambar']; ?>" class="hero-portrait">
+                        <img src="img/hero/<?php echo $data['gambar']; ?>" class="hero-portrait">
                     <?php else: ?>
                         <img src="img/logo_gt.png" class="hero-portrait" style="background:#eee; padding:20px;">
                     <?php endif; ?>
